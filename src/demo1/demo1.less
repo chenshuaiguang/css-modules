@@ -1,0 +1,58 @@
+// @color:"images";
+// @a:'@{color}';
+@color:color;
+@a:~'@{color}';
+@pre:ant;
+.wrap{
+    .box{
+        color: yellowGreen;
+    &-a{
+        @{a}:yellow;
+        width: 500px;
+        height: 500px;
+        border: 1px red solid;
+        &-b{
+            color: blue;
+           .x{
+               color:yellow;
+                &-b-b{
+                color: #333;
+                }
+            }
+            &>&-p{
+                color: blue;
+            }
+            span{
+                color: blue;
+            }
+        }
+        .test11{
+            color: red;
+        }
+        &-d{
+            color: blue;
+        }
+        &>&-d{
+            color: blue;
+        }
+        .test{
+            color: red;
+        }
+    }
+}
+    &-a-c{
+        color: green;
+    }
+    &.son{
+        color: yellowgreen;
+        >.son2{
+            color: purple;
+        }
+    }
+    div{
+        background: #333;
+    }
+    }
+    // .@{pre}-a{
+    //     display: none;
+    // }}
