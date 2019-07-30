@@ -1,5 +1,6 @@
 import React from 'react'
 import style from  './demo1.less'
+// import _ from 'lodash'
 class Demo1 extends React.Component{
     constructor(props){
         super(props)
@@ -20,13 +21,10 @@ class Demo1 extends React.Component{
                     <div className={style['box-a-d']}>
                         dddd
                     </div>
+                    <img width="100" height="100" src={require('../images/red.png')} />
+                    <img width="100" height="100" src={require('../images/eye.png')} />
                 </div>
             </div>
-            // <div className="box">
-            //     <div className="son">
-            //     wewwe
-            //     </div>
-            //     </div>
         )
     }
 }
