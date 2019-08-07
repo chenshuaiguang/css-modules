@@ -173,8 +173,8 @@ module.exports = function(webpackEnv) {
       // initialization, it doesn't blow up the WebpackDevServer client, and
       // changing JS code would still trigger a refresh.
     // ].filter(Boolean),
-    copy:path.resolve(paths.appSrc, "copy/index.js"),
-    mytest:path.resolve(paths.appSrc, "mytest/index.js")
+    // copy:path.resolve(paths.appSrc, "copy/index.js"),
+    // mytest:path.resolve(paths.appSrc, "mytest/index.js")
   },
     output: {
       // The build folder.
