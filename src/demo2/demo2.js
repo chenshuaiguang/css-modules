@@ -1,6 +1,7 @@
 import React from 'react'
 import _ from 'lodash'
 import './demo2.css'
+// import Demo1 from '../demo1/demo1'
 class Demo2 extends React.Component{
     constructor(props){
         super(props)
@@ -17,6 +18,7 @@ class Demo2 extends React.Component{
             <>
             <div>
                我是demo2
+               {/* <Demo1 /> */}
             </div>
             <img width="100" height="100" src={require('../images/red.png')} />
             </>

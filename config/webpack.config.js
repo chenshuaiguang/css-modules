@@ -153,7 +153,8 @@ module.exports = function(webpackEnv) {
     //   // changing JS code would still trigger a refresh.
     // ].filter(Boolean),
 
-    { main:[
+    { main:
+      // [
       // Include an alternative client for WebpackDevServer. A client's job is to
       // connect to WebpackDevServer by a socket and get notified about changes.
       // When you save a file, the client will either apply hot updates (in case
@@ -164,15 +165,16 @@ module.exports = function(webpackEnv) {
       // the line below with these two lines if you prefer the stock client:
       // require.resolve('webpack-dev-server/client') + '?/',
       // require.resolve('webpack/hot/dev-server'),
-      isEnvDevelopment &&
-        require.resolve('react-dev-utils/webpackHotDevClient'),
+      // isEnvDevelopment &&
+        // require.resolve('react-dev-utils/webpackHotDevClient'),
       // Finally, this is your app's code:
       paths.appIndexJs,
       // We include the app code last so that if there is a runtime error during
       // initialization, it doesn't blow up the WebpackDevServer client, and
       // changing JS code would still trigger a refresh.
-    ].filter(Boolean),
-    copy:paths.copyJs
+    // ].filter(Boolean),
+    copy:path.resolve(paths.appSrc, "copy/index.js"),
+    mytest:path.resolve(paths.appSrc, "mytest/index.js")
   },
     output: {
       // The build folder.
@@ -272,7 +274,16 @@ module.exports = function(webpackEnv) {
       // https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
       splitChunks: {
         chunks: 'all',
-        name: false,
+        // minChunks:2,
+        minSize: 0,
+        // name: false,
+      //   cacheGroups: {
+      //     reactzz: {
+      //       minChunks: 1,
+      //       minSize:0,
+      //       // priority: -20,
+      //     }
+      // }
       },
       // Keep the runtime chunk separated to enable long term caching
       // https://twitter.com/wSokra/status/969679223278505985
@@ -549,23 +560,23 @@ module.exports = function(webpackEnv) {
           {},
           {
             inject: true,
-            chunks: ['main'],
+            // chunks: ['main'],
             template: paths.appHtml,
-            filename: "index.html"
+            // filename: "index.html"
           },
         )
       ),
-      new HtmlWebpackPlugin(
-        Object.assign(
-          {},
-          {
-            inject: true,
-            chunks: ['copy'],
-            template: paths.appHtml,
-            filename: "copy.html"
-          }
-        )
-      ),
+      // new HtmlWebpackPlugin(
+      //   Object.assign(
+      //     {},
+      //     {
+      //       inject: true,
+      //       chunks: ['copy'],
+      //       template: paths.appHtml,
+      //       filename: "copy.html"
+      //     }
+      //   )
+      // ),
       // Inlines the webpack runtime script. This script is too small to warrant
       // a network request.
       isEnvProduction &&
