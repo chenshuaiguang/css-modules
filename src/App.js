@@ -2,14 +2,9 @@ import React from 'react';
 import {BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import loadable from './utility/loadable'
 import style from './App.css';
-import Demo1 from './demo1/index.js'
-import Common from './mytest/index.js'
-// import('./demo1/demo1')
 // import _ from 'lodash'
-import Demo2 from './demo2/demo2'
 // import Route1 from './route1/route1'
-// const Demo1 = loadable(()=>import('./demo1/demo1'))
-// const Demo2 = loadable(()=>import('./demo2/demo2'))
+const Demo2 = loadable(()=>import('./demo2/demo2'))
 // const Route1 = loadable(()=>import('./route1/route1'))
 class App extends React.Component {
   constructor(props){
@@ -76,12 +71,10 @@ return  data.map(item=>{
         <a href="/index.html">跳转</a>
         <ul>{this.createTree(this.state.treeDataSource)}</ul>
         {this.state.show&&<>
-        {/* <Demo1 /> */}
         <Demo2 /></>}
         {/* <Switch>
                 <Route path="/time" component={Route1} />
                 </Switch> */}
-                 
       </header>
 
     </div>
